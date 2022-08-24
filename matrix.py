@@ -25,11 +25,11 @@ class SymbolColumn:
         self.symbols = [Symbol(x, i, self.speed) for i in range(y, y - FONT_SIZE * self.column_height, -FONT_SIZE)]
 
     def draw(self):
-        [symbol.draw('green') if i else symbol.draw('lightgreen') for i, symbol in enumerate(self.symbols)]
+        [symbol.draw('green') if i else symbol.draw('white') for i, symbol in enumerate(self.symbols)]
 
 
 os.environ['SDL_VIDEO_CENTERED'] = '1'
-RES = WIDTH, HEIGHT = 1920, 1080
+RES = WIDTH, HEIGHT = 1440, 2560
 FONT_SIZE = 15
 alpha_value = 0
 
@@ -39,7 +39,7 @@ surface = pg.Surface(RES)
 surface.set_alpha(alpha_value)
 clock = pg.time.Clock()
 
-katakana = [chr(int('0x30a0', 16) + i) for i in range(96)]
+katakana = [chr(int('0x30a0', 16) + i) for i in range(166)]
 font = pg.font.Font('font/ms mincho.ttf', FONT_SIZE, bold=True)
 green_katakana = [font.render(char, True, (20, randrange(16, 256), 20)) for char in katakana]
 lightgreen_katakana = [font.render(char, True, pg.Color('lightgreen')) for char in katakana]
